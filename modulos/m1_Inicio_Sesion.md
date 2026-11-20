@@ -56,30 +56,40 @@ A continuación se presenta el modelo conceptual de interacción entre los actor
 
 ### 5.1 Código Fuente UML (PlantUML)
 
+
 @startuml
 left to right direction
 skinparam packageStyle rectangle
 
-actor "Usuario" as usr
-actor "Sistema de Autenticación" as auth
+actor "Alumno" as alumno
+actor "Personal Administrativo" as admin
+actor "Profesores" as profesor
 
 rectangle "Módulo: Inicio de Sesión" {
-  usecase "CU01: Ingresar credenciales" as UC1
-  usecase "CU02: Validar credenciales" as UC2
-  usecase "CU03: Recuperar contraseña" as UC3
-  usecase "CU04: Cerrar sesión" as UC4
-  usecase "CU05: Bloquear acceso por reintentos" as UC5
-  usecase "CU06: Redireccionar según rol" as UC6
+    usecase "Iniciar sesión" as UC1
+    usecase "Cambiar contraseña" as UC2
+    usecase "Recuperar contraseña" as UC3
+    usecase "Agregar usuario" as UC4
+    usecase "Cerrar sesión" as UC5
 }
 
-usr --> UC1
-usr --> UC3
-usr --> UC4
+' Alumno
+alumno -- UC1
+alumno -- UC2
+alumno -- UC3
+alumno -- UC5
 
-UC1 .> UC2 : <<include>>
-UC2 ..> UC6 : <<include>>
-UC2 <.. UC5 : <<extend>>
-UC2 --> auth
+' Personal Administrativo
+admin -- UC1
+admin -- UC2
+admin -- UC4
+
+' Profesores
+profesor -- UC1
+profesor -- UC2
+profesor -- UC3
+profesor -- UC5
+
 @enduml
 
 
