@@ -56,7 +56,6 @@ A continuación se presenta el modelo conceptual de interacción entre los actor
 
 ### 5.1 Código Fuente UML (PlantUML)
 
-
 @startuml
 left to right direction
 skinparam packageStyle rectangle
@@ -82,6 +81,7 @@ alumno -- UC5
 ' Personal Administrativo
 admin -- UC1
 admin -- UC2
+admin -- UC3
 admin -- UC4
 
 ' Profesores
@@ -91,7 +91,6 @@ profesor -- UC3
 profesor -- UC5
 
 @enduml
-
 
 ## 6. Glosario y Abreviaturas
 
